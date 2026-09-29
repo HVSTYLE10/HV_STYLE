@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HV_STYLE | Luxury Essentials</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Assistant,Arial,sans-serif;background:#f7f3eb;color:#1e241f}
+a{text-decoration:none;color:inherit}
+header{position:sticky;top:0;z-index:10;background:rgba(247,243,235,.95);backdrop-filter:blur(10px);border-bottom:1px solid #ddd6c9}
+.nav{max-width:1200px;margin:auto;height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 22px}
+.logo{font-family:"Playfair Display",serif;letter-spacing:3px;font-size:25px}
+.navlinks{display:flex;gap:28px;font-size:15px}
+.navlinks a:hover{opacity:.55}
+.cart{border:1px solid #1e241f;padding:8px 14px;border-radius:30px;cursor:pointer;background:transparent}
+.hero{min-height:620px;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 20px;background:
+linear-gradient(rgba(20,24,20,.48),rgba(20,24,20,.48)),
+url("https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1800&q=85") center/cover}
+.hero-inner{color:#fff;max-width:760px}
+.eyebrow{letter-spacing:5px;text-transform:uppercase;font-size:12px;margin-bottom:20px}
+h1{font-family:"Playfair Display",serif;font-size:clamp(48px,8vw,92px);font-weight:500;letter-spacing:2px}
+.hero p{font-size:18px;margin:18px auto 30px;max-width:600px;font-weight:300}
+.btn{display:inline-block;background:#e8dfcf;color:#1e241f;padding:13px 28px;border:1px solid #e8dfcf;transition:.2s}
+.btn:hover{background:transparent;color:#fff}
+section{max-width:1200px;margin:auto;padding:75px 22px}
+.section-head{text-align:center;margin-bottom:42px}
+.section-head h2{font-family:"Playfair Display",serif;font-size:38px;font-weight:500}
+.section-head p{color:#6c6c63;margin-top:8px}
+.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.category{height:290px;display:flex;align-items:end;padding:25px;color:white;position:relative;overflow:hidden;background-size:cover;background-position:center}
+.category:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent,rgba(0,0,0,.65))}
+.category span{position:relative;z-index:1;font-family:"Playfair Display",serif;font-size:27px}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.product{background:#fff;border:1px solid #e2ddd3;overflow:hidden}
+.product-img{height:300px;background:#e8e2d7;display:flex;align-items:center;justify-content:center;color:#777;font-size:12px;letter-spacing:1px}
+.product-info{padding:18px}
+.product-name{font-size:17px;margin-bottom:7px}
+.price{font-weight:600}
+.add{margin-top:15px;width:100%;padding:10px;background:#1e241f;color:#fff;border:0;cursor:pointer}
+.about{background:#ebe5d9;max-width:none}
+.about-inner{max-width:900px;margin:auto;text-align:center}
+.about h2{font-family:"Playfair Display",serif;font-size:42px;margin-bottom:18px}
+.about p{line-height:1.9;color:#55584f;font-size:17px}
+footer{background:#1e241f;color:#e9e2d5;padding:42px 22px;text-align:center}
+footer .logo{margin-bottom:12px}
+footer p{color:#b9b3a8;font-size:14px}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:30}
+.modal-box{background:#f7f3eb;position:absolute;right:0;top:0;height:100%;width:min(430px,100%);padding:30px;overflow:auto}
+.close{float:left;cursor:pointer;font-size:25px}
+.cart-item{padding:15px 0;border-bottom:1px solid #d8d1c5;display:flex;justify-content:space-between}
+.total{margin-top:25px;font-size:20px;font-weight:700}
+@media(max-width:800px){
+.navlinks{display:none}.categories{grid-template-columns:1fr}.products{grid-template-columns:repeat(2,1fr)}
+.product-img{height:230px}.hero{min-height:540px}
+}
+@media(max-width:480px){.products{grid-template-columns:1fr}.product-img{height:300px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="logo" href="#">HV_STYLE</a>
+    <nav class="navlinks">
+      <a href="#shop">חנות</a><a href="#categories">קטגוריות</a><a href="#about">אודות</a>
+    </nav>
+    <button class="cart" onclick="openCart()">סל 🛒 (<span id="count">0</span>)</button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">HV_STYLE · EST. 2026</div>
+    <h1>Quiet Luxury.</h1>
+    <p>סטייל מדויק, פריטים נבחרים ואווירת Old Money — במקום אחד.</p>
+    <a class="btn" href="#shop">לגלות את הקולקציה</a>
+  </div>
+</section>
+
+<section id="categories">
+  <div class="section-head">
+    <h2>הקטגוריות שלנו</h2>
+    <p>בקרוב תמצאו כאן את הקולקציות המלאות</p>
+  </div>
+  <div class="categories">
+    <a class="category" style="background-image:url('https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=900&q=80')" href="#shop"><span>בגדים</span></a>
+    <a class="category" style="background-image:url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80')" href="#shop"><span>נעליים</span></a>
+    <a class="category" style="background-image:url('https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=900&q=80')" href="#shop"><span>בשמים</span></a>
+  </div>
+</section>
+
+<section id="shop">
+  <div class="section-head">
+    <h2>הקולקציה</h2>
+    <p>מוצרים לדוגמה — נחליף אותם במוצרים האמיתיים שלך</p>
+  </div>
+  <div class="products" id="products"></div>
+</section>
+
+<section id="about" class="about">
+  <div class="about-inner">
+    <h2>HV_STYLE</h2>
+    <p>מותג המתמקד בסטייל נקי, אלגנטי ועל-זמני. אנחנו מאמינים שלא צריך לצעוק כדי לבלוט — הבחירה הנכונה בפרטים הקטנים עושה את ההבדל.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="logo">HV_STYLE</div>
+  <p>Luxury essentials · Fashion · Shoes · Fragrance</p>
+  <p style="margin-top:12px">© 2026 HV_STYLE. All rights reserved.</p>
+</footer>
+
+<div class="modal" id="cartModal" onclick="if(event.target===this)closeCart()">
+  <div class="modal-box">
+    <span class="close" onclick="closeCart()">×</span>
+    <h2 style="font-family:'Playfair Display',serif;font-size:30px;margin-bottom:25px">הסל שלך</h2>
+    <div id="cartItems"></div>
+    <div class="total" id="total"></div>
+    <button class="add" onclick="alert('עמוד התשלום יתחבר כאן לאחר שנוסיף סליקה.')">המשך לתשלום</button>
+  </div>
+</div>
+
+<script>
+const products=[
+ {name:"חולצת פשתן Premium",price:249,cat:"בגדים",img:"https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?auto=format&fit=crop&w=700&q=80"},
+ {name:"נעלי Leather Classic",price:499,cat:"נעליים",img:"https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=700&q=80"},
+ {name:"בושם Signature",price:389,cat:"בשמים",img:"https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=700&q=80"},
+ {name:"סריג Old Money",price:329,cat:"בגדים",img:"https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=700&q=80"}
+];
+let cart=[];
+const productsEl=document.getElementById("products");
+products.forEach((p,i)=>{
+ productsEl.innerHTML+=`<article class="product">
+ <div class="product-img" style="background:url('${p.img}') center/cover"></div>
+ <div class="product-info"><div style="font-size:12px;color:#8a877d">${p.cat}</div>
+ <div class="product-name">${p.name}</div><div class="price">₪${p.price}</div>
+ <button class="add" onclick="addToCart(${i})">הוסף לסל</button></div></article>`;
+});
+function addToCart(i){cart.push(products[i]);renderCart();document.getElementById("count").textContent=cart.length}
+function renderCart(){
+ const el=document.getElementById("cartItems");
+ if(!cart.length){el.innerHTML='<p style="color:#777">הסל עדיין ריק.</p>';document.getElementById("total").textContent="";return}
+ el.innerHTML=cart.map((p,i)=>`<div class="cart-item"><span>${p.name}</span><b>₪${p.price}</b></div>`).join("");
+ document.getElementById("total").textContent="סה״כ: ₪"+cart.reduce((s,p)=>s+p.price,0);
+}
+function openCart(){document.getElementById("cartModal").style.display="block";renderCart()}
+function closeCart(){document.getElementById("cartModal").style.display="none"}
+renderCart();
+</script>
+</body>
+</html>
